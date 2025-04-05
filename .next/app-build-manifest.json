@@ -30,6 +30,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/overdue/page.js"
+    ],
+    "/reset-password/[resetToken]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/reset-password/[resetToken]/page.js"
     ]
   }
 }
