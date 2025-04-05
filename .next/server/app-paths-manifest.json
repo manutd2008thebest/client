@@ -1,8 +1,8 @@
 {
-  "/page": "app/page.js",
   "/overdue/page": "app/overdue/page.js",
+  "/page": "app/page.js",
   "/completed/page": "app/completed/page.js",
   "/pending/page": "app/pending/page.js",
-  "/login/page": "app/login/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/login/page": "app/login/page.js"
 }

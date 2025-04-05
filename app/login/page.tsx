@@ -11,7 +11,10 @@ function page() {
   const router = useRouter();
 
   useEffect(() => {
-    localStorage.setItem('userAuthenticated', 'false')
+    // redirect to home page if user is already logged in
+    if (user && user._id) {
+      router.push("/");
+    }
   }, [user, router]);
 
   // return null or a loading spinner/indicator
