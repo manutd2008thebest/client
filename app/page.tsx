@@ -21,11 +21,14 @@ export default function Home() {
     setPriority("all");
     const auth = localStorage.getItem("userAuthenticated");
     setAuthenticated(auth);
+
+    if(!authenticated || authenticated=='false'){
+      useRedirect("/login");
+    }
   }, []);
 
-  if (!authenticated || authenticated=="false"){
-    useRedirect("/login");
-  }
+  
+
 
   return (
     <main className="m-6 h-full">
