@@ -81,7 +81,9 @@ export const UserContextProvider = ({ children }) => {
       await getUser(); // fetch before redirecting
 
       // push user to the dashboard page
+      localStorage.setItem("userAuthenticated", true);
       router.push("/");
+      window.location.reload();
     } catch (error) {
       console.log("Error logging in user", error);
       toast.error(error.response.data.message);
@@ -122,7 +124,9 @@ export const UserContextProvider = ({ children }) => {
       setUser({});
 
       // redirect to login page
+      localStorage.setItem("userAuthenticated", false);
       router.push("/login");
+      window.location.reload();
     } catch (error) {
       console.log("Error logging out user", error);
       toast.error(error.response.data.message);

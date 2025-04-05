@@ -10,18 +10,18 @@ function LoginForm() {
   const togglePassword = () => setShowPassword(!showPassword);
 
   return (
-    <form className="relative m-[2rem] px-10 py-14 rounded-lg bg-white w-full max-w-[520px]">
+    <form className="relative m-[2rem] px-10 py-14 rounded-[3rem] bg-white w-full max-w-[620px]">
       <div className="relative z-10">
-        <h1 className="mb-2 text-center text-[1.35rem] font-medium">
-          Login to Your Account
+        <h1 className="mb-2 text-center text-[1.8rem] font-medium">
+          Log In
         </h1>
         <p className="mb-8 px-[2rem] text-center text-[#999] text-[14px]">
-          Login Now. Don't have an account?{" "}
+          Don't have an account?{" "}
           <a
             href="/register"
-            className="font-bold text-[#2ECC71] hover:text-[#7263F3] transition-all duration-300"
+            className="font-bold text-[#4a89ff] hover:text-[#0b52d6] transition-all duration-300"
           >
-            Register here
+            Create User
           </a>
         </p>
 
@@ -35,7 +35,7 @@ function LoginForm() {
             value={email}
             onChange={(e) => handlerUserInput("email")(e)}
             name="email"
-            className="px-4 py-3 border-[2px] rounded-md outline-[#2ECC71] text-gray-800"
+            className="px-4 py-3 border-[2px] rounded-md outline-[#4a89ff] text-gray-800"
             placeholder="johndoe@gmail.com"
           />
         </div>
@@ -49,7 +49,7 @@ function LoginForm() {
             value={password}
             onChange={(e) => handlerUserInput("password")(e)}
             name="password"
-            className="px-4 py-3 border-[2px] rounded-md outline-[#2ECC71] text-gray-800"
+            className="px-4 py-3 border-[2px] rounded-md outline-[#4a89ff] text-gray-800"
             placeholder="***************"
           />
           <button
@@ -66,7 +66,7 @@ function LoginForm() {
         <div className="mt-4 flex justify-end">
           <a
             href="/forgot-password"
-            className="font-bold text-[#2ECC71] text-[14px] hover:text-[#7263F3] transition-all duration-300"
+            className="font-bold text-[#0b52d6] text-[14px] hover:text-[#4a89ff] transition-all duration-300"
           >
             Forgot password?
           </a>
@@ -76,13 +76,12 @@ function LoginForm() {
             type="submit"
             disabled={!email || !password}
             onClick={loginUser}
-            className="mt-[1.5rem] flex-1 px-4 py-3 font-bold bg-[#2ECC71] text-white rounded-md hover:bg-[#1abc9c] transition-colors"
+            className="mt-[1.5rem] flex-1 px-4 py-3 font-bold bg-[#0b52d6] text-white rounded-md hover:bg-[#4a89ff] transition-colors"
           >
-            Login Now
+            Submit
           </button>
         </div>
       </div>
-      <img src="/flurry.png" alt="" />
     </form>
   );
 }

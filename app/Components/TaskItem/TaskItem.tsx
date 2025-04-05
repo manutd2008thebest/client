@@ -28,43 +28,43 @@ function TaskItem({ task }: TaskItemProps) {
 
   return (
     <motion.div
-      className="h-[16rem] px-4 py-3 flex flex-col gap-4 shadow-sm bg-[#f9f9f9] rounded-lg border-2 border-white"
+      className="h-[16rem] px-4 py-3 flex flex-col gap-4 shadow-sm bg-[#f9f9f9] rounded-[1rem] border-2 border-white"
       variants={item}
     >
       <div>
         <h4 className="font-bold text-2xl">{task.title}</h4>
-        <p>{task.description}</p>
+        <div className="flex flex-col gap-10">
+          <div>
+            <p>{task.description}</p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-400">Created: {formatTime(task.createdAt)}</p>
+            <p className="text-sm text-gray-400">Due: {formatTime(task.dueDate)}</p>
+          </div>
+        </div>
       </div>
       <div className="mt-auto flex justify-between items-center">
-        <p className="text-sm text-gray-400">{formatTime(task.createdAt)}</p>
         <p className={`text-sm font-bold ${getPriorityColor(task.priority)}`}>
           {task.priority}
         </p>
         <div>
-          <div className="flex items-center gap-3 text-gray-400 text-[1.2rem]">
+          <div className="flex items-center gap-1 text-gray-400 text-[1.2rem]">
             <button
-              className={`${
-                task.completed ? "text-yellow-400" : "text-gray-400"
-              }`}
-            >
-              {star}
-            </button>
-            <button
-              className="text-[#00A1F1]"
+              className="bg-[#00A1F1] text-white text-[.8rem] w-[70px] py-[2px] rounded-[8px]"
               onClick={() => {
                 getTask(task._id);
                 openModalForEdit(task);
               }}
             >
-              {edit}
+              Edit
             </button>
             <button
-              className="text-[#F65314]"
+              className="bg-[#F65314] text-white text-[.8rem] w-[70px] py-[2px] rounded-[8px]"
               onClick={() => {
                 deleteTask(task._id);
               }}
             >
-              {trash}
+              Delete
             </button>
           </div>
         </div>

@@ -47,7 +47,7 @@ function Modal() {
     <div className="fixed left-0 top-0 z-50 h-full w-full bg-[#333]/30 overflow-hidden">
       <form
         action=""
-        className="py-5 px-6 max-w-[520px] w-full flex flex-col gap-3 bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-md"
+        className="py-5 px-6 max-w-[520px] w-full flex flex-col gap-3 bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-[2rem] shadow-md"
         onSubmit={handleSubmit}
         ref={ref}
       >
@@ -119,7 +119,7 @@ function Modal() {
           <button
             type="submit"
             className={`text-white py-2 rounded-md w-full hover:bg-blue-500 transition duration-200 ease-in-out ${
-              modalMode === "edit" ? "bg-blue-400" : "bg-green-400"
+              modalMode === "edit" ? "bg-blue-400" : "bg-blue-400"
             }`}
           >
             {modalMode === "edit" ? "Update Task" : "Create Task"}

@@ -26,7 +26,7 @@ function Filters() {
         <button
           key={index}
           className={`relative px-1 z-10 font-medium text-sm ${
-            activeIndex === index ? "text-[#3aafae] " : "text-gray-500"
+            activeIndex === index ? "text-[#0b52d6] " : "text-gray-500"
           }`}
           onClick={() => {
             setActiveIndex(index);

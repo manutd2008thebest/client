@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -61,15 +59,15 @@
 }
 
 body {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   height: 100vh;
   position: relative;
-  font-family: "Montserrat", sans-serif;
 }
 
 .auth-page {
   height: 100vh;
-  background: url("../public/glass-bg.png") no-repeat center center fixed;
+  background: url("../public/glass-bg.webp") no-repeat center center fixed;
+  background-size: cover;
 }
 
 .auth-page form {
@@ -102,6 +100,12 @@ body {
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-right: 8px solid #3aafae;
+  border-right: 8px solid #0b52d6;
   transform: translateY(-50%);
+}
+
+
+.profile-modal-header{
+  background: url("../public/glass-bg.webp") no-repeat center center fixed;
+  background-size: cover;
 }
