@@ -4,15 +4,14 @@ import LoginForm from "../Components/auth/LoginForm/LoginForm";
 import { useUserContext } from "@/context/userContext";
 import { useRouter } from "next/navigation";
 
+// window.localStorage.setItem('userAuthenticated', 'false')
+
 function page() {
   const { user } = useUserContext();
   const router = useRouter();
 
   useEffect(() => {
-    // redirect to home page if user is already logged in
-    if (user && user._id) {
-      router.push("/");
-    }
+    localStorage.setItem('userAuthenticated', 'false')
   }, [user, router]);
 
   // return null or a loading spinner/indicator
