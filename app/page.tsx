@@ -5,30 +5,23 @@ import Filters from "./Components/Filters/Filters";
 import TaskItem from "./Components/TaskItem/TaskItem";
 import { Task } from "@/utils/types";
 import { filteredTasks } from "@/utils/utilities";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { container, item } from "@/utils/animations";
 
 export default function Home() {
+  const auth = localStorage.getItem('userAuthenticated')
+  if (auth == null || auth == 'false'){
+    useRedirect("/login");
+  }
 
   const { tasks, openModalForAdd, priority, setPriority } = useTasks();
-  const [authenticated, setAuthenticated] = useState<string | null>(null);
-  
 
   const filtered = filteredTasks(tasks, priority);
 
   useEffect(() => {
     setPriority("all");
-    const auth = localStorage.getItem("userAuthenticated");
-    setAuthenticated(auth);
-
-    if(!authenticated || authenticated=='false'){
-      useRedirect("/login");
-    }
   }, []);
-
-  
-
 
   return (
     <main className="m-6 h-full">
