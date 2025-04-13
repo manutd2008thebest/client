@@ -9,10 +9,14 @@ import { link } from "fs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTasks } from "@/context/taskContext";
+import RadialChart from "../RadialChart/RadialChart";
 import React from "react";
 
 function MiniSidebar() {
   const pathname = usePathname();
+  const { tasks, activeTasks, completedTasks, openProfileModal } = useTasks();
+  
 
   const getStrokeColor = (link: string) => {
     return pathname === link ? "#0b52d6" : "#71717a";
@@ -67,7 +71,7 @@ function MiniSidebar() {
           <Image src="/logo.png" width={50} height={50} className="rounded-[.5rem]" alt="logo" />
           <h1 className="text-[1.4rem] font-bold pl-[12px]">TASK MANAGER</h1>
         </div>
-        <div className="mt-16 w-[20rem] flex-1 flex flex-col items-center justify-between">
+        <div className="mt-16 w-[20rem] flex-1 flex flex-col items-center justify-start">
           <ul className="flex flex-col w-[100%]">
             {navItems.map((item, index) => (
               <li key={index} className={`flex justify-start relative group my-[2px] mx-[6px] rounded-[12px] border-2 ${item.bgcolor ? 'border-[#0b52d6]' : 'border-[#ffffff]'} bg-[#efefef]`}>
@@ -82,7 +86,47 @@ function MiniSidebar() {
               </li>
             ))}
           </ul>
-  
+        <div className="mt-6 flex flex-col gap-1">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="text-gray-400">
+              <p>Total Tasks:</p>
+              <p className="pl-4 relative flex gap-2">
+                <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-purple-500 rounded-[5px]"></span>
+                <span className="font-medium text-4xl text-[#333]">
+                  {tasks.length}
+                </span>
+              </p>
+            </div>
+            <div className="text-gray-400">
+              <p>In Progress:</p>
+              <p className="pl-4 relative flex gap-2">
+                <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-[#0b52d6] rounded-[5px]"></span>
+                <span className="font-medium text-4xl text-[#333]">
+                  {activeTasks.length}
+                </span>
+              </p>
+            </div>
+            <div className="text-gray-400">
+              <p>Open Tasks:</p>
+              <p className="pl-4 relative flex gap-2">
+                <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-orange-400 rounded-[5px]"></span>
+                <span className="font-medium text-4xl text-[#333]">
+                  {activeTasks.length}
+                </span>
+              </p>
+            </div>
+            <div className="text-gray-400">
+              <p>Completed:</p>
+              <p className="pl-4 relative flex gap-2">
+                <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-blue-400 rounded-[5px]"></span>
+                <span className="font-medium text-4xl text-[#333]">
+                  {completedTasks.length}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <RadialChart />
           {/* <div className="mb-[1.5rem]">
             <button className="w-12 h-12 flex justify-center items-center border-2 border-[#EB4E31]  p-2 rounded-full">
               <IconDeleteAll strokeColor="#EB4E31" />
